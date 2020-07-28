@@ -11,28 +11,33 @@ class DIrectory extends Component {
           id: 1,
           title: 'HATZ',
           imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+          linkUrl: 'hats',
         },
         {
           id: 2,
           title: 'JACKET',
           imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+          linkUrl: '',
         },
         {
           id: 3,
           title: 'SNEAKERS',
           imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+          linkUrl: '',
         },
         {
           id: 4,
           title: 'WOMEN',
           imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
           size: 'large',
+          linkUrl: '',
         },
         {
           id: 5,
           title: 'MENS',
           imageUrl: 'https://i.ibb.co/R70vBrQ/mens.png',
           size: 'large',
+          linkUrl: ' ',
         },
       ],
     };
@@ -42,15 +47,8 @@ class DIrectory extends Component {
     return (
       <div>
         <div className="directory-menu">
-          {this.state.sections.map(({ id, title, imageUrl, size }) => {
-            return (
-              <MenuItems
-                key={id}
-                title={title}
-                imageUrl={imageUrl}
-                size={size}
-              />
-            );
+          {this.state.sections.map(({ id, ...otherSectionProps }) => {
+            return <MenuItems key={id} {...otherSectionProps} />;
           })}
         </div>
       </div>
